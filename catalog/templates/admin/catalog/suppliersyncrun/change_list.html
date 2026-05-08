@@ -1,0 +1,59 @@
+{% extends "admin/change_list.html" %}
+
+{% block object-tools-items %}
+  <li>
+    <form method="post" action="{% url 'admin:catalog_suppliersyncrun_check_supplier_api' %}">
+      {% csrf_token %}
+      <button type="submit" class="button">Проверить API</button>
+    </form>
+  </li>
+  <li>
+    <form method="post" action="{% url 'admin:catalog_suppliersyncrun_import_categories' %}">
+      {% csrf_token %}
+      <button type="submit" class="button">Загрузить категории</button>
+    </form>
+  </li>
+  <li>
+    <form method="post" action="{% url 'admin:catalog_suppliersyncrun_import_products' %}">
+      {% csrf_token %}
+      <button type="submit" class="button">Загрузить товары</button>
+    </form>
+  </li>
+  <li>
+    <form method="post" action="{% url 'admin:catalog_suppliersyncrun_update_active_products' %}">
+      {% csrf_token %}
+      <button type="submit" class="button">Обновить цены и наличие</button>
+    </form>
+  </li>
+  <li>
+    <form method="post" action="{% url 'admin:catalog_suppliersyncrun_import_product_images' %}">
+      {% csrf_token %}
+      <button type="submit" class="button">Загрузить изображения</button>
+    </form>
+  </li>
+  <li>
+    <form method="post" action="{% url 'admin:catalog_suppliersyncrun_import_adult_characteristics' %}">
+      {% csrf_token %}
+      <button type="submit" class="button">Загрузить характеристики 18+</button>
+    </form>
+  </li>
+  <li>
+    <form method="post" action="{% url 'admin:catalog_suppliersyncrun_import_logistic_centers' %}">
+      {% csrf_token %}
+      <button type="submit" class="button">Загрузить склады</button>
+    </form>
+  </li>
+  <li>
+    <form method="post" action="{% url 'admin:catalog_suppliersyncrun_import_addresses' %}">
+      {% csrf_token %}
+      <button type="submit" class="button">Загрузить адреса</button>
+    </form>
+  </li>
+  <li>
+    <form method="post" action="{% url 'admin:catalog_suppliersyncrun_import_all' %}">
+      {% csrf_token %}
+      <button type="submit" class="button">Загрузить все</button>
+    </form>
+  </li>
+  {{ block.super }}
+{% endblock %}
